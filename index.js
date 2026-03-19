@@ -33,20 +33,25 @@ app.get('/job-details/:jobId', (req, res) => {
     jobId,
     jobName: "Data Analyst",
     description: "The position for data analyst is open for xyz componey " + jobId,
-    payRate: "$50000"
+    payRate: "$50000",
+    workType:"Online"
+
   }))
  if(jobId=="a00dL00002zUgHuQAK")( res.json({
     jobId,
     jobName: "QA Engineer",
     description: "The QA position for adecco group is opened for the team" + jobId,
-    payRate: "$100000"
+    payRate: "$100000",
+    workType:"offline"
   }))
   if(jobId=="a00dL00002zUqrRQAS")( res.json({
     jobId,
     jobName: "salesforce developer",
     description: "the salesforce developer role in abc compony is opened for" + jobId,
-    payRate: "$60000"
-  }))
+    payRate: "$60000",
+    workType:"offline"
+
+}))
 });
 
 // Start server
