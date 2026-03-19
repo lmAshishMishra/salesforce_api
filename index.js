@@ -19,8 +19,9 @@ app.get('/job-recommendations', (req, res) => {
   const { candidateId } = req.query; // sent by Salesforce (Contact Id)
   // Return dummy data (in real-life you'd use candidateId for personalization)
   res.json([
-    { jobId: "a01xx0000001", jobName: "Data Analyst", jobLocation: "Chennai" },
-    { jobId: "a01xx0000002", jobName: "QA Engineer", jobLocation: "Remote" }
+    { jobId: "a00dL00002zUgorQAC", jobName: "Data Analyst", jobLocation: "Chennai" },
+    { jobId: "a00dL00002zUgHuQAK", jobName: "QA Engineer", jobLocation: "Remote" },
+    {jobId: "a00dL00002zUqrRQAS", jobName: "salesforce developer", jobLocation: "lucknow"}
   ]);
 });
 
@@ -28,12 +29,24 @@ app.get('/job-recommendations', (req, res) => {
 // Usage: GET /job-details/:jobId
 app.get('/job-details/:jobId', (req, res) => {
   const { jobId } = req.params;
-  res.json({
+ if(jobId=="a00dL00002zUgorQAC")( res.json({
     jobId,
-    jobName: jobId === 'a01xx0000001' ? 'Data Analyst' : 'QA Engineer',
-    description: "Job description for " + jobId,
-    payRate: jobId === 'a01xx0000001' ? 850 : 700
-  });
+    jobName: "Data Analyst",
+    description: "The position for data analyst is open for xyz componey " + jobId,
+    payRate: "$50000"
+  }))
+ if(jobId=="a00dL00002zUgHuQAK")( res.json({
+    jobId,
+    jobName: "QA Engineer",
+    description: "The QA position for adecco group is opened for the team" + jobId,
+    payRate: "$100000"
+  }))
+  if(jobId=="a00dL00002zUqrRQAS")( res.json({
+    jobId,
+    jobName: "salesforce developer",
+    description: "the salesforce developer role in abc compony is opened for" + jobId,
+    payRate: "$60000"
+  }))
 });
 
 // Start server
